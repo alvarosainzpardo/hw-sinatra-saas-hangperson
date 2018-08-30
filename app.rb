@@ -40,6 +40,7 @@ class HangpersonApp < Sinatra::Base
   post '/guess' do
     letter = params[:guess].to_s[0]
     ### YOUR CODE HERE ###
+    letter.empty?
 =begin
     if letter.empty?
       flash[:message] = "Empty guess. "
