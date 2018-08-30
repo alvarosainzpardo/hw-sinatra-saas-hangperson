@@ -38,7 +38,7 @@ class HangpersonApp < Sinatra::Base
   # If a guess is repeated, set flash[:message] to "You have already used that letter."
   # If a guess is invalid, set flash[:message] to "Invalid guess."
   post '/guess' do
-    flash[:message] = "The first letter of the guess field is <%s>" % params[:guess].to_s[0]
+    flash[:message] = "The first letter of the guess field is '%s'" % params[:guess].to_s[0]
 =begin
     if params[:guess] != nil
       letter = params[:guess].to_s[0]
