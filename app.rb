@@ -43,13 +43,11 @@ class HangpersonApp < Sinatra::Base
     if !letter.nil?
       game_guesses = @game.guesses + @game.wrong_guesses
       if game_guesses.include? letter
-        flash[:message] += 'You have already used that letter.'
+        flash[:message] = 'You have already used that letter.'
       else
-        begin
-          @game.guess(letter)
-        rescue 
-          flash[:message] += 'Invalid guess.'
-        end
+        @game.guess(letter)
+        rescue
+          flash[:message] = 'Invalid guess.'
       end
     end
     redirect '/show'
